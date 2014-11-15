@@ -32,7 +32,10 @@ BOARD_HARDWARE_CLASS := device/sony/eagle/cmhw
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/sony/eagle/bluetooth
 
-# Wifi
+# Camera
+COMMON_GLOBAL_CFLAGS += -DSONY_CAM_PARAMS
+
+# WiFi
 WLAN_MODULES:
 	mkdir -p $(KERNEL_MODULES_OUT)/pronto
 	mv $(KERNEL_MODULES_OUT)/wlan.ko $(KERNEL_MODULES_OUT)/pronto/pronto_wlan.ko
