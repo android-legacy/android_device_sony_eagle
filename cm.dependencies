@@ -14,8 +14,6 @@
    "branch": "cm-11.0"
  },
   {
-    "remote": "github",
-    "account": "CyanogenMod",
     "repository": "android_device_sony_qcom-common",
     "target_path": "device/sony/qcom-common",
     "branch": "cm-11.0"
