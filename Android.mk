@@ -1,6 +1,6 @@
 LOCAL_PATH := $(call my-dir)
 
-ifeq ($(TARGET_DEVICE),eagle)
+ifeq ($(TARGET_DEVICE),eagle eagle_ds eagle_lte)
     include $(call first-makefiles-under,$(LOCAL_PATH))
 
     $(shell mkdir -p $(TARGET_OUT_ETC)/firmware/wcd9306; \
