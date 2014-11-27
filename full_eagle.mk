@@ -31,10 +31,3 @@ $(call inherit-product, device/sony/eagle/eagle.mk)
 
 # Build fingerprints
 PRODUCT_BUILD_PROP_OVERRIDES +=BUILD_UTC_DATE=0
- 
-# Set those variables here to overwrite the inherited values.
-PRODUCT_NAME := full_omni
-PRODUCT_DEVICE := omni
-PRODUCT_BRAND := Sony
-PRODUCT_MANUFACTURER := Sony
-PRODUCT_MODEL := Xperia M2
