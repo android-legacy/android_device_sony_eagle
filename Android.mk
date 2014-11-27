@@ -1,13 +1,12 @@
 LOCAL_PATH := $(call my-dir)
 
-ifeq ($(TARGET_DEVICE),eagle)
-    include $(call first-makefiles-under,$(LOCAL_PATH))
+include $(call first-makefiles-under,$(LOCAL_PATH))
 
-    $(shell mkdir -p $(TARGET_OUT_ETC)/firmware/wcd9306; \
-        ln -sf /data/misc/audio/wcd9320_anc.bin \
-        $(TARGET_OUT_ETC)/firmware/wcd9306/wcd9306_anc.bin; \
-        ln -sf /data/misc/audio/mbhc.bin \
-        $(TARGET_OUT_ETC)/firmware/wcd9306/wcd9306_mbhc.bin)
+$(shell mkdir -p $(TARGET_OUT_ETC)/firmware/wcd9306; \
+    ln -sf /data/misc/audio/wcd9320_anc.bin \
+    $(TARGET_OUT_ETC)/firmware/wcd9306/wcd9306_anc.bin; \
+    ln -sf /data/misc/audio/mbhc.bin \
+    $(TARGET_OUT_ETC)/firmware/wcd9306/wcd9306_mbhc.bin)
 
 # Create firmware links
 FIRMWARE_IMAGES := \
@@ -26,4 +25,3 @@ $(FIRMWARE_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	$(hide) ln -sf /firmware/image/$(notdir $@) $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(FIRMWARE_SYMLINKS)
-endif
