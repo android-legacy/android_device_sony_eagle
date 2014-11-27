@@ -284,8 +284,8 @@ service rfs_access /system/bin/rfs_access
    group system net_raw
 
 on property:vold.decrypt=trigger_restart_framework
-    exec /system/bin/sh /system/etc/check_sensor_reg_version.sh
-    start sensors
+    start qmuxd
+    start netmgrd
     start config_bluetooth
 
 service config_bluetooth /system/bin/sh /system/etc/init.qcom.bt.sh "onboot"
@@ -313,9 +313,10 @@ service qmiproxy /system/bin/qmiproxy
 
 # QMUX must be in multiple groups to support external process connections
 service qmuxd /system/bin/qmuxd
-    class late_start
+    class main
     user radio
     group radio audio bluetooth gps qcom_diag net_bt_stack
+    disabled
 
 service netmgrd /system/bin/netmgrd
     class main
