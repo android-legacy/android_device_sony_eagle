@@ -31,3 +31,6 @@ $(call inherit-product, device/sony/eagle/eagle.mk)
 
 # Build fingerprints
 PRODUCT_BUILD_PROP_OVERRIDES +=BUILD_UTC_DATE=0
+
+RODUCT_NAME := full_omni
+PRODUCT_DEVICE := omni
