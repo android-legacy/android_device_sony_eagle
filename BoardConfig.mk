@@ -17,13 +17,12 @@ USE_CAMERA_STUB := true
 include device/sony/msm8226-common/BoardConfigCommon.mk
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := D2302,D2303,D2305,D2306,eagle
+TARGET_OTA_ASSERT_DEVICE := D2302,D2303,D2305,D2306,eagle,eagle_ds,eagle_lte
 
 TARGET_SPECIFIC_HEADER_PATH += device/sony/eagle/include
 
 # Kernel properties
 TARGET_KERNEL_SOURCE := kernel/sony/eagle
-TARGET_KERNEL_CONFIG := eagle_lte_defconfig
 TARGET_DTB_EXTRA_FLAGS := --force-v2
 
 # Hardware Features
