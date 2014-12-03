@@ -56,6 +56,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/recovery/bootrec-device:recovery/bootrec-device
 
+# Somehow the symlink to charger is dangling and cannot be used
+PRODUCT_COPY_FILES += \
+$(LOCAL_PATH)/rootdir/charger:recovery/root/charger
+
 # Sbin
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/charger:root/charger \
