@@ -41,6 +41,8 @@ WLAN_MODULES:
 	ln -sf /system/lib/modules/pronto/pronto_wlan.ko $(TARGET_OUT)/lib/modules/wlan.ko
 TARGET_KERNEL_MODULES += WLAN_MODULES
 
+USE_MINIKIN := true
+
 # Partition information
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2399141888
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 5112839168
