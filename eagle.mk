@@ -106,5 +106,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     CameraWorkaround
 
+# for now disable selinux
+PRODUCT_PROPERTY_OVERRIDES += \
+    setenforce=0 \
+    ro.boot.selinux=0 \
+    selinux.reload_policy=0
+
 # call dalvik heap config
 $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
