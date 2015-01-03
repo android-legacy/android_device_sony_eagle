@@ -27,7 +27,7 @@
 #
 
 # the DIAG device node is not world writable/readable.
-/dev/diag                 0660   system     qcom_diag
+/dev/diag                 0660   radio      radio
 /dev/ssr_monitor_dev      0660   system     system
 
 /dev/genlock              0666   system     system
@@ -42,7 +42,7 @@
 /dev/smd_cxm_qmi          0640   radio      radio
 /dev/smd5                 0660   system     system
 /dev/smd6                 0660   system     system
-/dev/smd7                 0660   bluetooth  bluetooth
+/dev/smd7                 0640   radio      radio
 
 #permissions for CSVT
 /dev/smd11                0660   radio      radio
@@ -98,7 +98,7 @@
 /dev/media*               0660   system     camera
 /dev/v4l-subdev*          0660   system     camera
 /dev/qseecom              0660   system     drmrpc
-/dev/gemini0              0660   system     camera
+/dev/gemini*              0660   system     camera
 /dev/jpeg0                0660   system     camera
 /dev/jpeg1                0660   system     camera
 /dev/jpeg2                0660   system     camera
@@ -110,7 +110,7 @@
 /dev/msm_vidc_dec         0660   system     audio
 /dev/msm_vidc_dec_sec     0660   system     audio
 /dev/msm_vidc_enc         0660   system     audio
-/dev/msm_rotator          0660   system     system
+/dev/msm_rotator          0664   system     system
 /dev/hw_random            0600   root       root
 /dev/adsprpc-smd          0664   system     system
 
