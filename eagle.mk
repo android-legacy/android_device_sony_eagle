@@ -64,12 +64,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     dtbToolCM
 
-# Sbin
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/charger:root/charger \
-    $(LOCAL_PATH)/rootdir/sbin/wait4tad_static:root/sbin/wait4tad_static \
-    $(LOCAL_PATH)/rootdir/sbin/tad_static:root/sbin/tad_static
-
 # Audio Configs
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/system/etc/audio_policy.conf:system/etc/audio_policy.conf \
