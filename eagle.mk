@@ -38,6 +38,7 @@ PRODUCT_AAPT_PREF_CONFIG := xhdpi
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/fstab.qcom:root/fstab.qcom \
     $(LOCAL_PATH)/rootdir/init.qcom.rc:root/init.qcom.rc \
+    $(LOCAL_PATH)/rootdir/init.qcom.pwr.rc:root/init.qcom.pwr.rc \
     $(LOCAL_PATH)/rootdir/init.sony.rc:root/init.sony.rc \
     $(LOCAL_PATH)/rootdir/init.sony.usb.rc:root/init.sony.usb.rc \
     $(LOCAL_PATH)/rootdir/twrp.fstab:recovery/root/etc/twrp.fstab \
