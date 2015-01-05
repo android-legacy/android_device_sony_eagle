@@ -50,6 +50,11 @@ on fs
     wait /dev/block/platform/msm_sdcc.1/by-name/modem
     mount vfat /dev/block/platform/msm_sdcc.1/by-name/modem /firmware ro shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337
 
+    chmod 0755 /data/etc
+    exec /system/bin/taimport
+
+    restorecon -R /data/etc
+
     # Set RIL props based on model
     exec /system/bin/sh /system/etc/init.qcom.baseband.sh
 
@@ -130,21 +135,7 @@ on boot
     chown system system /sys/class/leds/green/blink
     # Enable writing to brightness node under torch-light from userspace
     chown system system /sys/class/leds/torch-light/brightness
-
-    chown bluetooth bluetooth /sys/module/bluetooth_power/parameters/power
-    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
-    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
-    chown bluetooth bluetooth /proc/bluetooth/sleep/proto
-    chown system system /sys/module/sco/parameters/disable_esco
-    chown bluetooth bluetooth /sys/module/hci_smd/parameters/hcismd_set
-    chmod 0660 /sys/module/bluetooth_power/parameters/power
-    chmod 0660 /sys/module/hci_smd/parameters/hcismd_set
-    chmod 0660 /sys/class/rfkill/rfkill0/state
-    chmod 0660 /proc/bluetooth/sleep/proto
-
     start qcamerasvr
-
-    exec /system/bin/taimport property
 
     # Enable Wi-Fi EAP SIM
     setprop ro.wifi.eap_sim_enabled true
@@ -167,19 +158,19 @@ on boot
     chown system system /sys/class/leds/lcd-backlight/brightness
     chown system system /sys/class/leds/button-backlight/brightness
     chown system system /sys/class/leds/jogball-backlight/brightness
-    chown root system /sys/class/leds/led:rgb_red/brightness
-    chown root system /sys/class/leds/led:rgb_green/brightness
-    chown root system /sys/class/leds/led:rgb_blue/brightness
+    chown root system /sys/class/leds/red/brightness
+    chown root system /sys/class/leds/green/brightness
+    chown root system /sys/class/leds/blue/brightness
 
-    chown root system /sys/class/leds/led:rgb_red/blink
-    chown root system /sys/class/leds/led:rgb_red/duty_pcts
-    chown root system /sys/class/leds/led:rgb_red/ramp_step_ms
-    chown root system /sys/class/leds/led:rgb_green/blink
-    chown root system /sys/class/leds/led:rgb_green/duty_pcts
-    chown root system /sys/class/leds/led:rgb_green/ramp_step_ms
-    chown root system /sys/class/leds/led:rgb_blue/blink
-    chown root system /sys/class/leds/led:rgb_blue/duty_pcts
-    chown root system /sys/class/leds/led:rgb_blue/ramp_step_ms
+    chown root system /sys/class/leds/red/blink
+    chown root system /sys/class/leds/red/duty_pcts
+    chown root system /sys/class/leds/red/ramp_step_ms
+    chown root system /sys/class/leds/green/blink
+    chown root system /sys/class/leds/green/duty_pcts
+    chown root system /sys/class/leds/green/ramp_step_ms
+    chown root system /sys/class/leds/blue/blink
+    chown root system /sys/class/leds/blue/duty_pcts
+    chown root system /sys/class/leds/blue/ramp_step_ms
 
     chown root system /sys/class/illumination/0
     chown root system /sys/class/illumination/1
@@ -190,21 +181,21 @@ on boot
     chown root system /sys/class/illumination/6
     chown root system /sys/class/illumination/7
     chown root system /sys/class/illumination/8
-    chmod 0664 /sys/class/leds/led:rgb_red/brightness
-    chmod 0664 /sys/class/leds/led:rgb_green/brightness
-    chmod 0664 /sys/class/leds/led:rgb_blue/brightness
-    chmod 0664 /sys/class/leds/led:rgb_red/flashmode
-    chmod 0664 /sys/class/leds/led:rgb_green/flashmode
-    chmod 0664 /sys/class/leds/led:rgb_blue/flashmode
-    chmod 0664 /sys/class/leds/led:rgb_red/onms
-    chmod 0664 /sys/class/leds/led:rgb_green/onms
-    chmod 0664 /sys/class/leds/led:rgb_blue/onms
-    chmod 0664 /sys/class/leds/led:rgb_red/offms
-    chmod 0664 /sys/class/leds/led:rgb_green/offms
-    chmod 0664 /sys/class/leds/led:rgb_blue/offms
-    chmod 0664 /sys/class/leds/led:rgb_red/tunebrightness
-    chmod 0664 /sys/class/leds/led:rgb_green/tunebrightness
-    chmod 0664 /sys/class/leds/led:rgb_blue/tunebrightness
+    chmod 0664 /sys/class/leds/red/brightness
+    chmod 0664 /sys/class/leds/green/brightness
+    chmod 0664 /sys/class/leds/blue/brightness
+    chmod 0664 /sys/class/leds/red/flashmode
+    chmod 0664 /sys/class/leds/green/flashmode
+    chmod 0664 /sys/class/leds/blue/flashmode
+    chmod 0664 /sys/class/leds/red/onms
+    chmod 0664 /sys/class/leds/green/onms
+    chmod 0664 /sys/class/leds/blue/onms
+    chmod 0664 /sys/class/leds/red/offms
+    chmod 0664 /sys/class/leds/green/offms
+    chmod 0664 /sys/class/leds/blue/offms
+    chmod 0664 /sys/class/leds/red/tunebrightness
+    chmod 0664 /sys/class/leds/green/tunebrightness
+    chmod 0664 /sys/class/leds/blue/tunebrightness
     chmod 0664 /sys/class/illumination/0
     chmod 0664 /sys/class/illumination/1
     chmod 0664 /sys/class/illumination/2
@@ -316,4 +307,3 @@ on property:init.svc.bootanim=running
     # Clear Sony boot splash
     write /sys/class/graphics/fb0/blank 1
     write /sys/class/graphics/fb0/blank 0
-
