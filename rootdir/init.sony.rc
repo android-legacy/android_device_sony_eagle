@@ -242,6 +242,12 @@ service tad_static /sbin/tad_static /dev/block/mmcblk0 1,16
     socket tad stream 0660 system sony_ta
     class sony_ta
 
+service QmiGateDaemon /system/bin/QmiGateDaemon
+    class main
+    user root
+    group system
+    ioprio rt 4
+
 service updatemiscta /system/bin/updatemiscta
     class main
     user root
