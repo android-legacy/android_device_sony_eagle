@@ -50,7 +50,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/system/etc/init.qcom.baseband.sh:system/etc/init.qcom.baseband.sh
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/system/etc/sec_config:system/etc/sec_config
+    $(LOCAL_PATH)/rootdir/system/etc/sec_config:system/etc/sec_config \
+    $(LOCAL_PATH)/rootdir/system/etc/thermanager.xml:system/etc/thermanager.xml
 
 # Thermal
 PRODUCT_COPY_FILES += \
