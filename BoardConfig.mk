@@ -34,13 +34,6 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/sony/eagle/bluetooth
 # Camera
 COMMON_GLOBAL_CFLAGS += -DSONY_CAM_PARAMS
 
-# WiFi
-WLAN_MODULES:
-	mkdir -p $(KERNEL_MODULES_OUT)/pronto
-	mv $(KERNEL_MODULES_OUT)/wlan.ko $(KERNEL_MODULES_OUT)/pronto/pronto_wlan.ko
-	ln -sf /system/lib/modules/pronto/pronto_wlan.ko $(TARGET_OUT)/lib/modules/wlan.ko
-TARGET_KERNEL_MODULES += WLAN_MODULES
-
 # Partition information
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1962934272
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 5460983808
