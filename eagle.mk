@@ -20,7 +20,8 @@ $(call inherit-product, device/qcom/sepolicy/sepolicy.mk)
 PRODUCT_COPY_FILES += \
     device/sony/eagle/rootdir/logo.rle:root/logo.rle \
     device/sony/eagle/rootdir/system/etc/mixer_paths.xml:system/etc/mixer_paths.xml \
-    device/sony/eagle/rootdir/system/etc/thermanager.xml:system/etc/thermanager.xml \
+    device/sony/eagle/rootdir/system/etc/sysmon.cfg:system/etc/sysmon.cfg \
+    device/sony/eagle/rootdir/system/etc/thermal-engine-8226.conf:system/etc/thermal-engine-8226.conf \
     device/sony/eagle/rootdir/system/etc/sap.conf:system/etc/sap.conf \
     device/sony/eagle/rootdir/system/etc/sec_config:system/etc/sec_config \
     device/sony/eagle/rootdir/system/etc/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
@@ -35,6 +36,9 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=240
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.somc.thermal=system_monitor
 
 ADDITIONAL_DEFAULT_PROPERTIES += \
     persist.service.adb.enable=1 \
