@@ -35,13 +35,3 @@ service btnvtool /system/bin/btnvtool -I
     user root
     group root
     oneshot
-
-# Sony: Start system_monitor
-service system_monitor /system/bin/system_monitor
-    socket sysmon stream 0660 root system
-    class core
-    user root
-    disabled
-
-on property:ro.somc.thermal=system_monitor
-    start system_monitor
