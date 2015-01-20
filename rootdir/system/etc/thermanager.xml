@@ -27,7 +27,7 @@
 		<!-- device-specific -->
 		<resource name="backlight" type="sysfs">/sys/class/leds/wled:backlight/max_brightness</resource>
 
-		<resource name="temp-emmc" type="msm-adc">/sys/devices/00-vadc-3100/die_temp</resource>
+		<!-- <resource name="temp-emmc" type="msm-adc">/sys/devices/00-vadc-3100/die_temp</resource> -->
 		<resource name="temp-batt" type="msm-adc">/sys/devices/00-vadc-3100/batt_therm</resource>
 		<resource name="kgsl-3d0" type="sysfs">/sys/class/kgsl/kgsl-3d0/max_gpuclk</resource>
 		<!--<resource name="dc" type="sysfs">/sys/class/power_supply/qpnp-dc/current_max</resource>-->
@@ -151,36 +151,36 @@
 	</configuration>
 
 	<!-- USB and DC -->
-	<configuration sensor="temp-emmc">
+	<!--<configuration sensor="temp-emmc">
 		<threshold>
-			<!--<mitigation name="dc" level="off" />-->
+			<mitigation name="dc" level="off" />
 			<mitigation name="usb" level="off" />
 		</threshold>
-		<threshold trigger="38400" clear="36400">
-			<!--<mitigation name="dc" level="1" />-->
+		<threshold trigger="384" clear="364">
+			<mitigation name="dc" level="1" />
 			<mitigation name="usb" level="1" />
 		</threshold>
-		<threshold trigger="40000" clear="38000">
-			<!--<mitigation name="dc" level="2" />-->
+		<threshold trigger="400" clear="380">
+			<mitigation name="dc" level="2" />
 			<mitigation name="usb" level="2" />
 		</threshold>
-		<threshold trigger="41600" clear="39600">
-			<!--<mitigation name="dc" level="3" />-->
+		<threshold trigger="416" clear="396">
+			<mitigation name="dc" level="3" />
 			<mitigation name="usb" level="3" />
 		</threshold>
-		<threshold trigger="42400" clear="41200">
-			<!--<mitigation name="dc" level="4" />-->
+		<threshold trigger="424" clear="412">
+			<mitigation name="dc" level="4" />
 			<mitigation name="usb" level="4" />
 		</threshold>
-		<threshold trigger="43200" clear="42000">
-			<!--<mitigation name="dc" level="5" />-->
+		<threshold trigger="432" clear="420">
+			<mitigation name="dc" level="5" />
 			<mitigation name="usb" level="5" />
 		</threshold>
-		<threshold trigger="44800" clear="44000">
-			<!--<mitigation name="dc" level="6" />-->
+		<threshold trigger="448" clear="440">
+			<mitigation name="dc" level="6" />
 			<mitigation name="usb" level="6" />
 		</threshold>
-	</configuration>
+	</configuration>-->
 
 	<!-- charging -->
 	<configuration sensor="temp-emmc">
