@@ -12,25 +12,31 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Screen resoultion in Pixels.
+# Resolution
 TARGET_SCREEN_HEIGHT := 960
 TARGET_SCREEN_WIDTH := 540
-
-# Torch
-PRODUCT_PACKAGES := \
-    OmniTorch
-
-# Inherit from those products. Most specific first.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-
-# Common Sony Resources
-$(call inherit-product, device/sony/common/resources.mk)
 
 # Inherit from eagle device
 $(call inherit-product, device/sony/eagle/eagle.mk)
 
-# Build fingerprints
-PRODUCT_BUILD_PROP_OVERRIDES +=BUILD_UTC_DATE=0
+# Inherit from common resources
+$(call inherit-product, device/sony/common/resources.mk)
 
-RODUCT_NAME := full_omni
-PRODUCT_DEVICE := omni
+# Inherit Omni GSM telephony parts
+$(call inherit-product, vendor/omni/config/gsm.mk)
+
+# Inherit Omni product configuration
+$(call inherit-product, vendor/omni/config/common.mk)
+
+# Product attributes
+PRODUCT_NAME := omni_eagle
+PRODUCT_DEVICE := eagle
+PRODUCT_MODEL := Xperia M2
+PRODUCT_BRAND := Sony
+PRODUCT_MANUFACTURER := Sony
+PRODUCT_LOCALES += xhdpi hdpi
+
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PRODUCT_NAME=D2303 \
+    BUILD_FINGERPRINT=Sony/D2303/D2303:4.4.4/18.3.1.C.0.21/2n9_bg:user/release-keys \
+    PRIVATE_BUILD_DESC="D2303-user 18.3.1.C.0.21 2n9_bg release-keys"

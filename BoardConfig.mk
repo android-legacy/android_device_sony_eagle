@@ -1,4 +1,4 @@
-# Copyright (C) 2014 The CyanogenMod Project
+# Copyright 2014 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -11,35 +11,28 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-USE_CAMERA_STUB := true
 
-# inherit from qcom-common
-include device/sony/msm8226-common/BoardConfigCommon.mk
-
-# Assert
-TARGET_OTA_ASSERT_DEVICE := D2302,D2303,D2305,D2306,eagle,eagle_lte,eagle_ds
+include device/sony/msm8226-common/BoardConfig.mk
 
 TARGET_SPECIFIC_HEADER_PATH += device/sony/eagle/include
 
+TARGET_BOOTLOADER_BOARD_NAME := D2303
+
 # Kernel properties
-TARGET_KERNEL_SOURCE := kernel/sony/eagle
-TARGET_DTB_EXTRA_FLAGS := --force-v2
+TARGET_KERNEL_CONFIG := eagle_lte_defconfig
 
-# Hardware Features
-BOARD_HARDWARE_CLASS := device/sony/eagle/cmhw
+# Assert
+TARGET_OTA_ASSERT_DEVICE := D2303,eagle,eagle_lte
 
-# Bluetooth
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/sony/eagle/bluetooth
+# Filesystem
+BOARD_SYSTEMIMAGE_PARTITION_SIZE   := 1962934272
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 5461000192
 
-# Camera
-COMMON_GLOBAL_CFLAGS += -DSONY_CAM_PARAMS
-
-# Partition information
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1962934272
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 5460983808
+# Eagle Camera
+USE_CAMERA_STUB := true
 
 # Recovery
-TARGET_RECOVERY_FSTAB := device/sony/eagle/rootdir/fstab.qcom
+TARGET_RECOVERY_FSTAB := device/sony/eagle/rootdir/fstab.yukon
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 
 # TWRP flags
@@ -52,7 +45,6 @@ TW_EXTERNAL_STORAGE_PATH := "/external_sd"
 TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
 TW_DEFAULT_EXTERNAL_STORAGE := true
 # TW_INCLUDE_CRYPTO := true
-TW_INCLUDE_JB_CRYPTO := true
 TW_CRYPTO_FS_TYPE := "ext4"
 TW_CRYPTO_REAL_BLKDEV := "/dev/block/platform/msm_sdcc.1/by-name/userdata"
 TW_CRYPTO_MNT_POINT := "/data"
