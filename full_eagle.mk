@@ -28,6 +28,10 @@ $(call inherit-product, vendor/omni/config/gsm.mk)
 # Inherit Omni product configuration
 $(call inherit-product, vendor/omni/config/common.mk)
 
+# Torch
+PRODUCT_PACKAGES := \
+    OmniTorch
+
 # Product attributes
 PRODUCT_NAME := omni_eagle
 PRODUCT_DEVICE := eagle
