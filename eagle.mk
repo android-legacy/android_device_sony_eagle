@@ -29,5 +29,11 @@ PRODUCT_COPY_FILES += \
     device/sony/eagle/rootdir/twrp.fstab:root/twrp.fstab \
     device/sony/eagle/rootdir/init.yukon.dev.rc:root/init.yukon.dev.rc
 
+#Wifi
+PRODUCT_COPY_FILES += \
+    device/sony/eagle/rootdir/etc/firmware/wlan/prima/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
+    device/sony/eagle/rootdir/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini:system/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini \
+    device/sony/eagle/rootdir/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
+
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=240
