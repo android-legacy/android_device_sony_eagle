@@ -31,6 +31,7 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 5460983808
 
 # Eagle Camera
 USE_CAMERA_STUB := true
+COMMON_GLOBAL_CFLAGS += -DSONY_CAM_PARAMS
 
 # Recovery
 TARGET_RECOVERY_FSTAB := device/sony/eagle/rootdir/fstab.yukon
