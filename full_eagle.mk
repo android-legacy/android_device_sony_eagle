@@ -29,7 +29,7 @@ $(call inherit-product, vendor/omni/config/gsm.mk)
 $(call inherit-product, vendor/omni/config/common.mk)
 
 # Torch
-PRODUCT_PACKAGES := \
+PRODUCT_PACKAGES += \
     OmniTorch
 
 # Product attributes
