@@ -17,7 +17,7 @@ TARGET_SCREEN_HEIGHT := 960
 TARGET_SCREEN_WIDTH := 540
 
 # Torch
-PRODUCT_PACKAGES := \
+PRODUCT_PACKAGES += \
     OmniTorch
 
 # Inherit from those products. Most specific first.
